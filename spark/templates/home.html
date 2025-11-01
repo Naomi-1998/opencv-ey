@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conteo de Estudiantes</title>
+    {% load static %}
+
+    <!-- ESTILO COMPLETO (incluye el botón) -->
+</head>
+<body>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container">
+        <h1>Bambi's App</h1>
+        
+        <div class="conteo">
+            Estudiantes detectados: <span id="count">{{ conteo }}</span>
+        </div>
+        
+        <div class="video-container">
+            <img id="videoFeed" src="{% url 'video_feed' %}" alt="Video en vivo">
+        </div>
+    </div>
+
+    <!-- BOTÓN CENTRADO -->
+    <div class="controls">
+        <button id="toggleCamera">Activar/Desactivar Cámara</button>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <style>
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+       
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 0.6s ease-out;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .conteo {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .conteo span {
+            font-size: 4em;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s ease-in-out infinite;
+            display: block;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .video-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            background: #000;
+            margin: 20px 0;
+        }
+
+        .video-container img {
+            width: 100%;
+            display: block;
+        }
+
+     
+        .controls {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+
+        #toggleCamera {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-family: inherit;
+            min-width: 220px;
+        }
+
+        #toggleCamera:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        #toggleCamera:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        #toggleCamera:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</body>
+</html>
