@@ -40,35 +40,6 @@ cd livecount
     python manage.py runserver
 
 
-📁 Estructura del proyect
-livecount/
-├── livecount/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── wsgi.py
-│   └── asgi.py
-├── spark/
-│   ├── migrations/
-│   ├── static/
-│   │   ├── css/
-│   │   │   └── style.css
-│   │   └── js/
-│   │       ├── main.js
-│   │       └── scripts.js
-│   ├── templates/
-│   │   └── home.html
-│   ├── views.py
-│   ├── models.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── tests.py
-│   └── __init__.py
-├── yolov3.cfg
-├── yolov3.weights
-├── db.sqlite3
-└── manage.py
-
-
+<img width="456" height="663" alt="image" src="https://github.com/user-attachments/assets/10d61d8b-675f-4cf6-ac74-eed0e6597131" />
 
     
